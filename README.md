@@ -2,7 +2,7 @@
 ## Machine Learning Projects Ferdowsi University
 ## How Should I Use It?
 first of all create a virtual venv: <br/>
-`py -m venv .venv`<br/>
+`py -m venv .venv`__  <br />
 after that enable the venv:<br/>
 `.venv\scripts\activate.ps1`<br/>
 or<br/>
