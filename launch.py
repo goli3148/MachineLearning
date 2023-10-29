@@ -1,17 +1,22 @@
 import os
-import threading
+import shutil
 from threading import Thread
 # config
-ignores = ['.venv', 'launch.py']
+ignores = ['.venv', 'launch.py', 'dataGenerator', 'data_', 'panda', 'data']
 python_file_name_ex = ".py"
 
 paths = []
 names = []
 
+# data copying
+dataFile = "dataGenerator.py"
+dataDir = "data"
+
 def similarity(filename):
     for igonre in ignores:
         if igonre in str(filename):
             return True
+
 
 def walk():
     for root, dirs, files in os.walk('.'):
@@ -22,6 +27,14 @@ def walk():
                     if not path in paths: 
                         paths.append(path)
                         names.append(name.replace(".py",""))
+            for name in dirs:
+                if name == dataDir:
+                    dataCode = open('data_\dataGenerator.py', 'r').read()
+                    try:
+                        open(f"{root}\\{name}\\dataGenerator.py", 'x')
+                    except:...
+                    open(f"{root}\\{name}\\dataGenerator.py", 'w').write(dataCode)
+                    print("DONE COPY")
     print("\n  Menu:")
     for index in range(len(paths)):
         print(f"\t{index+1} : {names[index]}")
