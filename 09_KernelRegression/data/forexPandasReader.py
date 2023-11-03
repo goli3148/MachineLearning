@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 def forexHis(numbersOfData):
-    df = pd.read_csv('9_KernelRegression/data/csv.csv')
+    df = pd.read_csv('data_/csv.csv')
     df = df.to_numpy()
     df = df[len(df)-numbersOfData:len(df)]
     df = df.transpose()
