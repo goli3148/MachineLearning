@@ -42,19 +42,6 @@ y_train = np.sin(X_train) + np.random.randn(*X_train.shape) * 0.1
 # Generate test inputs
 X_test = np.linspace(-7, 7, 100).reshape(-1, 1)
 
-# # Data from forex stocks
-# from data.forexPandasReader import forexHis
-# import random
-# dataNum = 150 # number of datas
-# dataTestPercent = .7 # test data percentage
-# X_train,y_train = forexHis(dataNum)
-# X_test , yTest = [] , []
-# for i in range(int(dataTestPercent * dataNum)):
-#     popIndex = random.randint(0, len(X_train)-1)
-#     X_test.append(X_train.pop(popIndex))
-#     yTest.append(y_train.pop(popIndex))
-
-# X_train, y_train, X_test = np.array(X_train).reshape(-1,1), np.array(y_train), np.array(X_test).reshape(-1, 1)*100
 
 # Create a Gaussian Process object
 gp = GaussianProcess(kernel=rbf_kernel, noise=.1)
